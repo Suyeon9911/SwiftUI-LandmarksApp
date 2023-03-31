@@ -18,11 +18,19 @@ struct LandmarkRow: View {
             Text(landmark.name)
 
             Spacer()
+
+            // SwiftUI 블록에서는 if 문을 사용하여 조건에 따라 뷰를 조건부로 포함시킬 수 있습니다.
+            if landmark.isFavorite {
+                Image(systemName: "star.fill")
+                    .foregroundColor(.yellow)
+            }
         }
     }
 }
 
 struct LandmarkRow_Previews: PreviewProvider {
+    static var landmarks = ModelData().landmarks
+
     static var previews: some View {
         Group {
             LandmarkRow(landmark: landmarks[0])
